@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import './style.css';
+import Edit from '../../assets/edit.svg';
 import Trash from '../../assets/trash.svg';
 import api from '../../services/api';
 
@@ -36,9 +37,17 @@ function Home() {
     getPets()
   }
 
-  // TODO
   async function updatePets(id) {
-    await api.put(`/pets/${id}`)
+    await api.put(`/pets/${id}`, {
+      name: inputName.current.value,
+      age: Number(inputAge.current.value),
+      gender: inputGender.current.value,
+      species: inputSpecies.current.value,
+      breed: inputBreed.current.value,
+      status: inputStatus.current.value,
+      desc: inputDescription.current.value,
+      image_url: inputImage.current.value,
+    })
 
     getPets()
   }
@@ -71,7 +80,6 @@ function Home() {
       {pets.map((pet) => (
         <div key={pet.id} className="card" >
           <div>
-            <img className='img' src={pet.image_url}></img>
             <p>name: <span>{pet.name}</span></p>
             <p>age: <span>{pet.age}</span></p>
             <p>gender: <span>{pet.gender}</span></p>
@@ -80,9 +88,15 @@ function Home() {
             <p>status: <span>{pet.status}</span></p>
             <p>desc: <span>{pet.desc}</span></p>
           </div>
-          <button onClick={() => deletePets(pet.id)}>
-            <img src={Trash} />
-          </button>
+          <img className='img-pet' src={pet.image_url}></img>
+          <div className='button-container'>
+            <button onClick={() => updatePets(pet.id)}>
+              <img src={Edit} />
+            </button>
+            <button onClick={() => deletePets(pet.id)}>
+              <img src={Trash} />
+            </button>
+          </div>
         </div>
       ))}
 
