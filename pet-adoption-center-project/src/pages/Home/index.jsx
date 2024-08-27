@@ -13,6 +13,7 @@ function Home() {
   const inputBreed = useRef();
   const inputStatus = useRef();
   const inputDescription = useRef();
+  const inputImage = useRef();
 
   async function getPets() {
     const responseApi = await api.get('/pets')
@@ -29,7 +30,15 @@ function Home() {
       breed: inputBreed.current.value,
       status: inputStatus.current.value,
       desc: inputDescription.current.value,
+      image_url: inputImage.current.value,
     })
+
+    getPets()
+  }
+
+  // TODO
+  async function updatePets(id) {
+    await api.put(`/pets/${id}`)
 
     getPets()
   }
@@ -55,12 +64,14 @@ function Home() {
         <input name="breed" placeholder="Breed" type="text" ref={inputBreed}/>
         <input name="status" placeholder="Status" type="text" ref={inputStatus}/>
         <input name="desc" placeholder="Description" type="text" ref={inputDescription}/>
+        <input name="image" placeholder="Image" type="text" ref={inputImage}/>
         <button type="button" onClick={createPets}>Register</button>
       </form>
 
       {pets.map((pet) => (
         <div key={pet.id} className="card" >
           <div>
+            <img className='img' src={pet.image_url}></img>
             <p>name: <span>{pet.name}</span></p>
             <p>age: <span>{pet.age}</span></p>
             <p>gender: <span>{pet.gender}</span></p>
