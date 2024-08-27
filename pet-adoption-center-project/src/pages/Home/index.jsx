@@ -20,7 +20,7 @@ function Home() {
     <div className="container">
       <form className="form-container">
         <h1>Register new Pet</h1>
-        <input name="Pet name" placeholder="Name" type="text" />
+        <input name="name" placeholder="Pet Name" type="text" />
         <input name="age" placeholder="Age" type="number" />
         <input name="gender" placeholder="Gender" type="text" />
         <input name="species" placeholder="Species" type="text" />
@@ -33,8 +33,13 @@ function Home() {
       {pets.map((pet) => (
         <div key={pet.id} className="card" >
           <div>
-            <p>name: {pet.name}</p>
-            <p>age: {pet.age}</p>
+            <p>name: <span>{pet.name}</span></p>
+            <p>age: <span>{pet.age}</span></p>
+            <p>gender: <span>{pet.gender}</span></p>
+            <p>species: <span>{pet.species}</span></p>
+            <p>breed: <span>{pet.breed}</span></p>
+            <p>status: <span>{pet.status}</span></p>
+            <p>desc: <span>{pet.desc}</span></p>
           </div>
           <button>
             <img src={Trash} />
