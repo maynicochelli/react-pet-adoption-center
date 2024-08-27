@@ -7,7 +7,8 @@
 
 h1 {
   color:ghostwhite;
-  font-size: 32px;
+  font-size: 28px;
+  text-align: center;
 }
 
 .form-container {
@@ -23,7 +24,7 @@ h1 {
 
   & button {
     border-radius: 30px;
-    background-color: rgb(156, 4, 202);
+    background-color: #7356A3;
     color: whitesmoke;
     height: 40px;
     border: none;
@@ -37,10 +38,10 @@ h1 {
   }
 
   & input {
-    border: 1px solid rgb(77, 3, 99);
+    border: 1px solid #4d0363;
     border-radius: 10px;
     height: 40px;
-    background-color: rgb(198, 141, 215);
+    background-color: #9B89B3;
     font-size: 18px;
     padding-left: 10px;
     outline: none;
