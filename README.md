@@ -18,7 +18,7 @@ This Application acts as the front-end interface for the Pet Adoption Center int
 </p>
 
 Web Application:
-![Image](https://i.postimg.cc/BnwTXg8K/app4.png)
+[![pet-adoption-center.png](https://i.postimg.cc/Hk87Rq2P/pet-adoption-center.png)](https://postimg.cc/mPRDF6KQ)
 
 ## 👩‍💻 Author
 #### Mayara Nicochelli
